@@ -43,7 +43,7 @@ vim .env
 - OPENAI_MODEL_NAME: 要使用的模型名称
 - XKCD_SERVICE_HOST: 服务监听地址
 - XKCD_SERVICE_PORT: 服务监听端口
-- XKCD_SERVICE_URL: 服务访问地址，如 http://127.0.0.1:5000
+- XKCD_SERVICE_URL: 服务访问地址，如 `http://127.0.0.1:5000`
 
 ```bash
 uv run main.py
@@ -54,7 +54,7 @@ uv run main.py
 1. 编辑 `assets/xkcd-translater.service`，修改工作目录、可执行文件路径和用户组名。
 2. 部署服务：
 ```bash
-sudo cp xkcd-translater.service /etc/systemd/system/
+sudo cp assets/xkcd-translater.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl start xkcd-translater
 ```
@@ -65,9 +65,9 @@ sudo systemctl enable xkcd-translater
 
 ## 使用
 
-访问 http://127.0.0.1:5000，会看到欢迎。访问 http://127.0.0.1:5000/update 进行首次数据获取，要加载一会。
+访问 `http://127.0.0.1:5000`，会看到欢迎。访问 `http://127.0.0.1:5000/update` 进行首次数据获取，要加载一会。
 
-然后访问 http://127.0.0.1:5000/atom 就能发现生成的 Atom 源。
+然后访问 `http://127.0.0.1:5000/atom` 就能发现生成的 Atom 源。
 
 - `/atom`: 获取翻译后的 Atom 源。
 - `/update`: 触发漫画数据更新，如果有新漫画，则会调用 API 进行翻译和解释。
