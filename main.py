@@ -226,6 +226,16 @@ def update_route():
         return f"更新失败: {e}", 500
 
 
+@app.route("/force_refresh_atom")
+def force_refresh_atom():
+    """强制刷新 Atom Feed"""
+    try:
+        generate_atom_feed()
+        return "Atom Feed 已刷新！", 200
+    except Exception as e:
+        return f"刷新 Atom Feed 失败: {e}", 500
+
+
 @app.route("/comics")
 def get_comics():
     """获取已保存的漫画信息"""
