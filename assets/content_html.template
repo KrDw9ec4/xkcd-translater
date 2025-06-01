@@ -4,11 +4,11 @@
 <p>{{ text.english | e }}</p>
 <p>{{ text.chinese | e }}</p>
 {% endfor %}
-{% if data.terms %}
 <hr>
 <strong>官方评论</strong>
 <p>{{ data.description.english | e }}</p>
 <p>{{ data.description.chinese | e }}</p>
+{% if data.terms %}
 <strong>名词解释</strong>
 <ul>
 {% for term in data.terms %}
