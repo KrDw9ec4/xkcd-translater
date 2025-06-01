@@ -1,0 +1,20 @@
+<strong>{{ data.title.english | e }} {{ data.title.chinese | e }}</strong>
+<img src="{{ data.image_url | e }}" alt="{{ data.description.chinese | e }}">
+{% for text in data.text %}
+<p>{{ text.english | e }}</p>
+<p>{{ text.chinese | e }}</p>
+{% endfor %}
+{% if data.terms %}
+<hr>
+<strong>官方评论</strong>
+<p>{{ data.description.english | e }}</p>
+<p>{{ data.description.chinese | e }}</p>
+<strong>名词解释</strong>
+<ul>
+{% for term in data.terms %}
+<li><strong>{{ term.english | e }}</strong> ({{ term.chinese | e }}): {{ term.explanation | e }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+<strong>漫画解释</strong>
+<p>{{ data.analysis | e }}</p>
