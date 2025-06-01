@@ -1,0 +1,14 @@
+[Unit]
+Description=XKCD Comic Explanation Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/uv run main.py
+WorkingDirectory=/mnt/tiplus/script/xkcd-translater
+User=krdw
+Group=krdw
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
