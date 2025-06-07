@@ -90,8 +90,8 @@ def explain_comic(
 
     completion = client.chat.completions.create(
         extra_headers={
-            "HTTP-Referer": "https://github.com/KrDw9ec4/xkcd-translater",  # Optional. Site URL for rankings on openrouter.ai.
-            "X-Title": "xkcd-translater",  # Optional. Site title for rankings on openrouter.ai.
+            "HTTP-Referer": "https://github.com/KrDw9ec4/xkcd-translator",  # Optional. Site URL for rankings on openrouter.ai.
+            "X-Title": "xkcd-translator",  # Optional. Site title for rankings on openrouter.ai.
         },
         extra_body={},
         model=model_name,
@@ -154,8 +154,8 @@ def generate_atom_feed(input_file=SAVED_COMICS_INFO_FILE, output_file=OUTPUT_FEE
     saved_comics_info = load_comic_info(input_file)
 
     fg = FeedGenerator()
-    fg.id("https://github.com/KrDw9ec4/xkcd-translater")
-    fg.title("xkcd-translater")
+    fg.id("https://github.com/KrDw9ec4/xkcd-translator")
+    fg.title("xkcd-translator")
     fg.subtitle("使用大模型翻译和解释 xkcd 漫画")
     fg.link(href="https://xkcd.com/atom.xml", rel="alternate")
     fg.link(href=XKCD_SERVICE_URL + "/atom", rel="self")
@@ -174,6 +174,11 @@ def generate_atom_feed(input_file=SAVED_COMICS_INFO_FILE, output_file=OUTPUT_FEE
         fe.updated(datetime.now(dateutil.tz.tzutc()))
 
     fg.atom_file(output_file, pretty=True)
+
+
+# TODO:
+# - comic/all: 替换现有的 /comics
+# - comic/<id>: 把 id 拼接为网址，查找并返回对应漫画的信息。如果不存在，则经确认后新增解释。
 
 
 def update_comic(comics):

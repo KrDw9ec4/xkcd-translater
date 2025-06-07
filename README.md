@@ -1,4 +1,4 @@
-# xkcd-translater
+# xkcd-translator
 
 一个从 xkcd 官方 Atom 源获取漫画、解析并翻译的 Python 项目，使用 OpenRouter 的 google/gemini-2.0-flash-001 模型生成翻译，并通过 Flask 提供 Web 服务生成新的 Atom 源。
 
@@ -24,8 +24,8 @@ uv 是用 Rust 写的 Python 包和项目管理器。
 ### 2. 克隆项目并安装依赖
 
 ```bash
-git clone https://github.com/KrDw9ec4/xkcd-translater.git
-cd xkcd-translater
+git clone https://github.com/KrDw9ec4/xkcd-translator.git
+cd xkcd-translator
 uv sync
 ```
 
@@ -51,16 +51,16 @@ uv run main.py
 
 ### 4. 配置系统服务（Linux 可选）
 
-1. 编辑 `assets/xkcd-translater.service`，修改工作目录、可执行文件路径和用户组名。
+1. 编辑 `assets/xkcd-translator.service`，修改工作目录、可执行文件路径和用户组名。
 2. 部署服务：
 ```bash
-sudo cp assets/xkcd-translater.service /etc/systemd/system/
+sudo cp assets/xkcd-translator.service /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl start xkcd-translater
+sudo systemctl start xkcd-translator
 ```
 3. 设置开机启动：
 ```bash
-sudo systemctl enable xkcd-translater
+sudo systemctl enable xkcd-translator
 ```
 
 ## 使用
